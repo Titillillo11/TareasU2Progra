@@ -1,23 +1,35 @@
-from estudiante import Estudiante
-from curso import Curso
+from hospital import Hospital
+from medico import Medico
+from paciente import Paciente
 
 def main():
-    curso1 = Curso("Matemáticas", "MAT101", "Dr. Pérez")
-    curso2 = Curso("Programación", "PROG202", "Ing. López")
-    curso3 = Curso("Historia", "HIST303", "Prof. García")
+    hospital = Hospital()
 
-    estudiante1 = Estudiante("Ana", 20, "E001")
-    estudiante2 = Estudiante("Luis", 22, "E002")
+    medico1 = Medico("Dr. Pérez", "M001")
+    medico2 = Medico("Dra. Gómez", "M002")
+    hospital.agregar_medico(medico1)
+    hospital.agregar_medico(medico2)
 
-    estudiante1.agregar_curso(curso1)
-    estudiante1.agregar_curso(curso2)
+    paciente1 = Paciente("Ana", 15, "P001")
+    paciente2 = Paciente("Luis", 22, "P002")
+    paciente3 = Paciente("Juan", 17, "P003")
+    hospital.agregar_paciente(paciente1)
+    hospital.agregar_paciente(paciente2)
+    hospital.agregar_paciente(paciente3)
 
-    estudiante2.agregar_curso(curso2)
-    estudiante2.agregar_curso(curso3)
-
-    estudiante1.mostrar_informacion()
+    hospital.mostrar_medicos()
     print()
-    estudiante2.mostrar_informacion()
+    hospital.mostrar_pacientes_menores()
+    print()
+    hospital.mostrar_pacientes_mayores()
+
+    hospital.eliminar_paciente("P001")
+    print("Después de eliminar paciente P001:")
+    hospital.mostrar_pacientes_mayores()
+
+    hospital.eliminar_medico("M001")
+    print("Después de eliminar médico M001:")
+    hospital.mostrar_medicos()
 
 if __name__ == "__main__":
     main()
