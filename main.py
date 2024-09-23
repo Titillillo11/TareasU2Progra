@@ -1,13 +1,23 @@
-from circulo import Circulo
+from estudiante import Estudiante
+from curso import Curso
 
 def main():
-    circulo1 = Circulo(5)
-    circulo2 = Circulo(10)
-    circulo3 = Circulo(15)
+    curso1 = Curso("Matemáticas", "MAT101", "Dr. Pérez")
+    curso2 = Curso("Programación", "PROG202", "Ing. López")
+    curso3 = Curso("Historia", "HIST303", "Prof. García")
 
-    print(f"Círculo 1 (Radio: {circulo1.radio}) - Área: {circulo1.calcular_area():.2f}, Perímetro: {circulo1.calcular_perimetro():.2f}")
-    print(f"Círculo 2 (Radio: {circulo2.radio}) - Área: {circulo2.calcular_area():.2f}, Perímetro: {circulo2.calcular_perimetro():.2f}")
-    print(f"Círculo 3 (Radio: {circulo3.radio}) - Área: {circulo3.calcular_area():.2f}, Perímetro: {circulo3.calcular_perimetro():.2f}")
+    estudiante1 = Estudiante("Ana", 20, "E001")
+    estudiante2 = Estudiante("Luis", 22, "E002")
+
+    estudiante1.agregar_curso(curso1)
+    estudiante1.agregar_curso(curso2)
+
+    estudiante2.agregar_curso(curso2)
+    estudiante2.agregar_curso(curso3)
+
+    estudiante1.mostrar_informacion()
+    print()
+    estudiante2.mostrar_informacion()
 
 if __name__ == "__main__":
     main()
