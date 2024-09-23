@@ -27,3 +27,14 @@ class Escuela:
         numero_random = randint(500, 5000)
         numero_control = (f"M-{ano_nacimiento}-{dia_actual}-{numero_random}-{nombre[:2].upper()}{rfc[-2:].upper()}{len(self.lista_maestros) + 1}")
         return numero_control
+    
+    
+    def registrar_materia(self, materia: Materia):
+        self.lista_materias.append(materia)
+
+    def generar_numero_control_materia(self, nombre: str, semestre: int, creditos: int):
+        ultimos_dos_digitos_nombre = nombre[-2:].upper()
+        numero_random = randint(1, 1000)
+        numero_control = f"MT{ultimos_dos_digitos_nombre}{semestre}{creditos}{numero_random}"
+        return numero_control
+

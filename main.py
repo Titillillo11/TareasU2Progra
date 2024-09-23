@@ -1,6 +1,7 @@
 from escuela.escuela import Escuela
 from estudiantes.estudiante import Estudiante
 from maestros.maestro import Maestro
+from materias.materia import Materia  # Asegúrate de importar Materia
 from datetime import datetime
 from random import randint
 
@@ -50,7 +51,18 @@ while True:
         print(f"Maestro {nombre} registrado exitosamente.")
 
     elif opcion == "3":
-        pass  
+        print("\nSeleccionaste la opción para registrar una materia")
+        nombre = input("Ingrese el nombre de la materia: ")
+        descripcion = input("Ingrese la descripción de la materia: ")
+        semestre = int(input("Ingrese el semestre de la materia: "))
+        creditos = int(input("Ingrese la cantidad de créditos de la materia: "))
+
+        numero_control = escuela.generar_numero_control_materia(nombre, semestre, creditos)
+        print(f"Número de control generado: {numero_control}")
+
+        materia = Materia(numero_control, nombre, descripcion, semestre, creditos)
+        escuela.registrar_materia(materia)
+        print(f"Materia {nombre} registrada exitosamente.")
 
     elif opcion == "4":
         pass  
