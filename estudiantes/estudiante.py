@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 class Estudiante:
     num_control: str
@@ -14,3 +14,7 @@ class Estudiante:
         self.curp = curp
         self.fecha_nacimiento = fecha_nacimiento
 
+    def mostrar_info_estudiante(self):
+        nombre_completo = f"{self.nombre} {self.apellido}"
+        info = f"\n Numero de control: {self.num_control}, Nombre completo: {nombre_completo}, CURP: {self.curp}, Fecha de nacimineto: {self.fecha_nacimiento}"
+        return info
