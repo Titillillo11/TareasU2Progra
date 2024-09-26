@@ -72,13 +72,13 @@ while True:
         print(f"Materia {nombre} registrada exitosamente.")
 
     elif opcion == "6":
-        escuela.Listar_estudiantes()
+        escuela.listar_estudiantes()
 
     elif opcion == "7":
-        escuela.Listar_maestros()  
+        escuela.Listar_maestros()
 
     elif opcion == "8":
-        escuela.Listar_materias()  
+        escuela.Listar_materias()
 
     elif opcion == "10":
         print("\nSeleccionaste la opcion para eliminar un estudiante. ")

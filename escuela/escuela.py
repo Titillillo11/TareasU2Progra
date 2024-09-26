@@ -20,11 +20,11 @@ class Escuela:
         numero_control = f"l{datetime.now().year}{datetime.now().month}{len(self.lista_estudiantes) + 1}{randint(0, 1000)}"
         return numero_control
     
-    def Listar_estudiantes(self):
+    def listar_estudiantes(self):
         print("** ESTUDIANTES **")
         for estudiante in self.lista_estudiantes:
-            print(estudiante.mostrar_info_estudiante())  # No pasar self aquí
-        return  # Mueve el return fuera del for
+            print(estudiante.mostrar_info_estudiante())
+        return  
 
     def eliminar_estudiante(self, numero_control: str):
         for estudiante in self.lista_estudiantes:
@@ -32,7 +32,6 @@ class Escuela:
                 self.lista_estudiantes.remove(estudiante)
                 print("ESTUDIANTE ELIMINADO.")
                 return
-            
         print(f"No se encontró el estudiante con el número de control: {numero_control}")
 
 
@@ -44,17 +43,19 @@ class Escuela:
         numero_random = randint(500, 5000)
         numero_control = (f"M-{ano_nacimiento}-{dia_actual}-{numero_random}-{nombre[:2].upper()}{rfc[-2:].upper()}{len(self.lista_maestros) + 1}")
         return numero_control
-    
 
     def Listar_maestros(self):
-        print("** MAESTROS **")
-        for maestro in self.lista_maestros:
-            print(maestro.mostrar_info_maestro())
-        return
+        if not self.lista_maestros:
+            print("No hay maestros registrados.")
+        else:
+            print("** MAESTROS **")
+            for maestro in self.lista_maestros:
+                print(maestro.mostrar_info_maestro())
+
 
     def eliminar_maestro(self, numero_control: str):
         for maestro in self.lista_maestros:
-            if maestro.num_control == numero_control:
+            if maestro.numero_control == numero_control:
                 self.lista_maestros.remove(maestro)
                 print("MAESTRO ELIMINADO.")
                 return
@@ -69,20 +70,20 @@ class Escuela:
         numero_random = randint(1, 1000)
         numero_control_materia = f"MT{ultimos_dos_digitos_nombre}{semestre}{creditos}{numero_random}"
         return numero_control_materia
-    
+        
     def Listar_materias(self):
-        print("** MATERIAS **")
-        for materia in self.lista_materias:
-            print(materia.mostrar_info_materia())
-        return
+        if not self.lista_materias:
+            print("No hay materias registradas.")
+        else:
+            print("** MATERIAS **")
+            for materia in self.lista_materias:
+                print(materia.mostrar_info_materia())
 
 
     def eliminar_materia(self, numero_control_materia: str):
-    for materia in self.lista_materias:
-        if materia.num_control_materia == generar_numero_control_materia:
-            self.lista_materias.remove(materia)
-            print("MATERIA ELIMINADA.")
-            return
-    print(f"No se encontró la materia con el número de control: {generar_numero_control_materia}")
-
-
+        for materia in self.lista_materias:
+            if materia.numero_control == numero_control_materia:
+                self.lista_materias.remove(materia)
+                print("MATERIA ELIMINADA.")
+                return
+        print(f"No se encontró la materia con el número de control: {numero_control_materia}")

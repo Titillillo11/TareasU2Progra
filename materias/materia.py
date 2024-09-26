@@ -7,9 +7,8 @@ class Materia:
         self.creditos = creditos
 
     def mostrar_info_materia(self):
-        info_materia = (f"Número de control: {self.numero_control}, "
-                        f"Nombre: {self.nombre}, "
-                        f"Descripción: {self.descripcion}, "
-                        f"Semestre: {self.semestre}, "
-                        f"Créditos: {self.creditos}")
-        return info_materia
+        return (f"Número de control: {self.numero_control}\n"
+                f"Nombre: {self.nombre}\n"
+                f"Descripción: {self.descripcion}\n"
+                f"Semestre: {self.semestre}\n"
+                f"Créditos: {self.creditos}")
