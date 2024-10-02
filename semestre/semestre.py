@@ -13,6 +13,11 @@ class Semestre:
     def __init__(self, numero: int, id_carrera: str):
         self.id = self.generar_id(numero)
         self.id_carrera = id_carrera
+        self.numero = numero
 
     def generar_id(self, numero_semestre: int) -> str:
         return f"{numero_semestre}-{randint(0,10000)}-{randint(0,10000)}"
+    
+    def registrar_grupo_en_semestre (self, grupo: Grupo):
+        self.grupos.append(grupo)
+        
