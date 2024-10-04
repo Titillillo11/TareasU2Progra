@@ -1,27 +1,17 @@
-from typing import List
-from random import randint
-from datetime import datetime
-
-
 class Materia:
+    id: str
     nombre: str
     descripcion: str
-    id_semestre: int
+    semestre: int
     creditos: int
 
-    def __init__(self, nombre: str, descripcion: str, id_semestre: int, creditos: int):
+    def __init__(self, id:str, nombre: str, descripcion:str, semestre:str, creditos:str):
+        self.id = id
         self.nombre = nombre
         self.descripcion = descripcion
-        self.semestre = id_semestre
+        self.semestre = semestre
         self.creditos = creditos
-        self.numero_control = self.generar_numero_control()
-         
-    def generar_numero_control(self):
-        ultimas_dos_letras = self.nombre[-2:].upper()
-        aleatorio = randint(1,1000)
-        return f"MT{ultimas_dos_letras}{self.id_semestre}{self.creditos}{aleatorio}"
-    
+
     def mostrar_info_materia(self):
-        info = f"\n - Nombre:{self.nombre}, id. {self.numero_control}"
+        info = f"ID: {self.id}, nombre: {self.nombre.upper()}, descripcion: {self.descripcion.upper()}, semestre: {self.semestre}, creditos: {self.creditos}"
         return info
-    
